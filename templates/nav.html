@@ -1,0 +1,13 @@
+{% block contents %}
+
+<header>
+<nav>
+    <ul>
+        <li><a class="atag" href="#">Greeeen x Whiteeeen</a></li>
+        <li><a class="atag" href="{{ url_for('songs') }}">Home</a></li>
+        <!-- <li><a class="atag" href="{{ url_for('songs') }}">Song List</a></li> -->
+        <li><a class="atag" href="{{ url_for('add_song') }}">Add Song</a></li>
+    </ul>
+</nav>
+</header>
+{% endblock %}

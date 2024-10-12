@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block title %} Songs {% endblock %}
+
+{% block contents %}
+
+<div class="search">
+    <form action="{{url_for('search')}}" method="POST">
+
+        <input type="text" name="search" placeholder="search...">
+        <button type="submit"><i class="search-icon fa-solid fa-magnifying-glass"></i></button>
+
+    </form>
+</div>
+
+<div class="message">
+    {% for message in get_flashed_messages() %}
+        {{message}}
+    {% endfor %}
+</div>
+
+{% for song in songs %}
+    <div class="card">
+        <img class='img-cover' src="static/images/{{song[3]}}" alt="Cover"/>
+        <h3 class="name-h3"><a class="ahh" href="https://open.spotify.com/search/{{song[1]}} {{song[2]}}" target="_blank">  Title: {{song[1]}} </a></h3><br/>
+        <p>Artist: {{song[2]}}</p><br>
+            <p class="ps">
+                <a href="{{ url_for('update', ids=song[0]) }}"><i class="iconify update-icon fa-regular fa-pen-to-square" style="color: #0014a8;"></i></a>
+                <a href="{{ url_for('delete', ids=song[0]) }}"><i class="iconify delete-icon fa-regular fa-trash-can" style="color: #a80404ea;"></i></a>            
+            </p>
+    </div>
+{% endfor %}
+
+<!-- {% for album in range(album_name|length) %}
+    <div class="card">
+        <img class='img-cover' src="{{album_image[album][0]['url']}}" alt="Cover"/>
+        <h3 class="name-h3"><a class="ahh" href="#" target="_blank">  Title: {{album_name[album]}} </a></h3><br/>
+        <p>Artist: {{artist_name}}</p><br>
+            <p class="ps">
+                <a href="#"><i class="iconify update-icon fa-regular fa-pen-to-square" style="color: #0014a8;"></i></a>
+                <a href="#"><i class="iconify delete-icon fa-regular fa-trash-can" style="color: #a80404ea;"></i></a>
+            </p>
+
+
+    </div>
+{% endfor %} -->
+
+
+{% endblock %}
+
+

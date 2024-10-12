@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %} Add Songs {% endblock %}
+
+{% block contents %}
+
+<form action="#" method="post" enctype="multipart/form-data">
+
+
+    <div class="title">
+        <label>Title</label>
+        <input type="text" name="title" required>
+    </div>
+
+    <div class="artist">
+        <label>Artist</label>
+        <input type="text" name="artist" required>
+    </div>
+
+    <label>Photo</label>
+    <input type="file" name="photo" required>
+
+    <button>Submit</button>
+
+</form>
+
+{% endblock %}
+
